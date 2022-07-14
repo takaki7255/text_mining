@@ -1,6 +1,6 @@
 import MeCab
 wakati = MeCab.Tagger('-Owakati')
-#辞書の階層を指定,neologdを使う
+#辞書を指定,neologdを使う
 neowakati = MeCab.Tagger('-Owakati -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
 
 word = input("文：")
