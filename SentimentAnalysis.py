@@ -123,6 +123,27 @@ def main():
                     # result_list.append([sentence,result[0]['label'],result[0]['score']])
                     print(sentence +" :この文は嫌味を言われている可能性があります。")
         # print(result_list)
+
+def analysis_sentences(text):
+    sa = SentimentAnalysis()
+    sentences = sa.split_text_2(text)
+    message_list = []
+    for sentence in sentences:
+        result = sa.sentiment_analysis_2(sentence)
+        if result[0]['label'] == 'ポジティブ':
+            if result[0]['score'] > 0.85:
+                message = sentence +" <-- この文は嫌味を言われている可能性があります。"
+                message_list.append(message)
+    return message_list
+
+def analysis_text(text):
+    sa = SentimentAnalysis()
+    result = sa.sentiment_analysis_2(text)
+    if result[0]['label'] == 'ポジティブ':
+        if result[0]['score'] > 0.85:
+            message = text +" <-- この文は嫌味を言われている可能性があります。"
+            return message
+    return None
     
 if __name__ == '__main__':
     main()
