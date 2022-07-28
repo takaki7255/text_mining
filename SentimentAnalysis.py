@@ -96,7 +96,7 @@ class SentimentAnalysis:
         # # 感情分析結果を合計
         # # score = sum(cha_list_noun_score)
         # #return score
-        return nouns
+        return nouns #途中で放棄した　未完成
 
     def sentiment_analysis_2(self,text):
         model = AutoModelForSequenceClassification.from_pretrained('daigo/bert-base-japanese-sentiment') 
